@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import css from './modal.module.css';
 import PropTypes from 'prop-types';
 
-const ModalRoot = document.querySelector('#modal-root');
+const modalRoot = document.querySelector('#root');
 
 class Modal extends Component {
   componentDidMount() {
@@ -28,7 +28,7 @@ class Modal extends Component {
       <div className={css.overlay} onClick={closeModal}>
         <div className={css.modal}>{children}</div>
       </div>,
-      ModalRoot
+      modalRoot
     );
   }
 }
