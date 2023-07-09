@@ -19,6 +19,7 @@ export class App extends Component {
     page: 1,
     showModal: false,
     largeImageUrl: '',
+    tottalPages: null,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,8 +32,8 @@ export class App extends Component {
   async fetchImg() {
     try {
       this.setState({ loading: true });
-      const { search, page } = this.state;
-      const data = await searchImg(search, page);
+      const { search, page, tottalPages } = this.state;
+      const data = await searchImg(search, page, tottalPages);
       this.setState(({ items }) => ({
         items: [...items, ...data.hits],
       }));
